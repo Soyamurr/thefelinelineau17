@@ -1,51 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>The Feline Line — Box Prototype v2</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Feline Line</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-
-  <div class="menu-screen" id="menuScreen">
-    <div class="logo">
+<div id="gameWrap" class="wrap">
+  <section id="menuScreen" class="screen menu-screen">
+    <div class="menu-overlay"></div>
+    <div class="menu-content">
       <h1>The Feline Line</h1>
-      <p class="tagline">tower defense + merging cat game</p>
+      <p>tower defense + merging cat game</p>
+      <div class="menu-buttons">
+        <button id="playBtn">Play</button>
+        <button id="quitBtn">Quit</button>
+      </div>
+      <div class="settings">
+        <b>Sound Settings</b>
+        <label>Music <input id="musicVolume" type="range" min="0" max="1" step=".01" value=".45"></label>
+        <label>SFX <input id="sfxVolume" type="range" min="0" max="1" step=".01" value=".8"></label>
+        <button id="soundToggle">Sound: ON</button>
+      </div>
+      <div id="quitMsg"></div>
     </div>
-    <div class="menu-buttons">
-      <button class="menu-btn play" id="playBtn">Play</button>
-      <button class="menu-btn quit" id="quitBtn">Quit</button>
-    </div>
-    <div class="quit-msg" id="quitMsg"></div>
-  </div>
+  </section>
 
-  <div class="game-screen hidden" id="gameScreen">
+  <section id="gameScreen" class="screen game-screen hidden">
     <div class="hud">
-      <div class="pill"><span class="swatch" style="background:var(--gold)"></span><span id="pointsLabel">10</span> pts</div>
-      <div class="pill"><span class="swatch" style="background:#c62828"></span> Lives: <span id="livesLabel">3</span></div>
+      <div class="pill"><span id="pointsLabel">10</span> pts</div>
+      <div class="pill">Lives: <span id="livesLabel">3</span></div>
       <div class="pill">Wave: <span id="waveLabel">0</span> / <span id="waveTotalLabel">6</span></div>
       <div class="pill" id="stateLabel">Playing</div>
-      <div class="pill menu-return" id="menuBtn">⟵ Menu</div>
+      <button class="pill" id="menuBtn">⟵ Menu</button>
     </div>
-
     <div class="board">
       <div class="shop" id="shop"></div>
       <div class="field-col">
-        <div class="wave-bar" id="waveBar">
-          <div class="wave-bar-fill" id="waveBarFill"></div>
-          <div class="wave-bar-marker" id="waveBarMarker"></div>
-        </div>
+        <div class="wave-bar"><div id="waveBarFill"></div><div id="waveBarMarker"></div></div>
         <canvas id="field" width="680" height="480"></canvas>
-        <div class="log" id="log"></div>
-        <div class="controls"></div>
-        <button class="restart" id="restartBtn">Restart</button>
+        <div id="log"></div>
+        <button id="restartBtn">Restart</button>
       </div>
     </div>
-  </div>
-
+  </section>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
